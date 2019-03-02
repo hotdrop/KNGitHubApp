@@ -9,5 +9,4 @@
 /captures
 .externalNativeBuild
 
-ios/iosApp/iosApp/Base.lproj
-ios/iosApp/iosApp.xcodeproj
+ios/iosApp
