@@ -1,0 +1,13 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+
+/build
+/common/build
+/captures
+.externalNativeBuild
+
+ios/iosApp/iosApp/Base.lproj
+ios/iosApp/iosApp.xcodeproj
