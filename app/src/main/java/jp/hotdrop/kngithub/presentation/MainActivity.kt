@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar
 import jp.hotdrop.kngithub.R
 import jp.hotdrop.kngithub.databinding.ActivityMainBinding
@@ -68,6 +70,10 @@ class MainActivity : AppCompatActivity() {
             binding?.let { rowBinding ->
                 val contributor = getItem(position)
                 rowBinding.contributor = contributor
+                Glide.with(this@MainActivity)
+                    .load(contributor.avatarUrl)
+                    .apply(RequestOptions().circleCrop())
+                    .into(binding.avatarImage)
             }
         }
     }
