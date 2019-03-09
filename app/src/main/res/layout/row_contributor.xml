@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="4dp"
-    app:cardUseCompatPadding="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable name="contributor" type="jp.hotdrop.model.Contributor" />
+    </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/name"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="テスト太郎"
-            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/contributeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            android:text="コントリビュート数: "
-            />
+            <ImageView
+                android:id="@+id/avatar_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/contribution"
-            app:layout_constraintStart_toEndOf="@+id/contributeLabel"
-            app:layout_constraintTop_toBottomOf="@+id/name"
-            tools:text="10"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{contributor.name}"
+                app:layout_constraintStart_toEndOf="@+id/avatar_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="テスト太郎"/>
+
+            <TextView
+                android:id="@+id/contributeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="コントリビュート数: "
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:layout_constraintStart_toEndOf="@+id/avatar_image"/>
+
+            <TextView
+                android:id="@+id/contribution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contributor.toStringContribution()}"
+                app:layout_constraintStart_toEndOf="@+id/contributeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                tools:text="10"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
 

@@ -5,6 +5,9 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
+    dataBinding.enabled = true
+    kapt.useBuildCache = true
+
     defaultConfig {
         applicationId "jp.hotdrop.kngithub"
         minSdkVersion 19
