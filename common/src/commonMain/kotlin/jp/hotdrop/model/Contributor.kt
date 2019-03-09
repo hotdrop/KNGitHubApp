@@ -1,6 +1,7 @@
-package org.kotlin.mpp.mobile.jp.hotdrop.model
+package jp.hotdrop.model
 
 data class Contributor(
     val name: String,
-    val star: Long
+    val avatarUrl: String,
+    val contribution: Int
 )
