@@ -9,4 +9,6 @@
 /captures
 .externalNativeBuild
 
-ios/iosApp
+ios/iosApp/iosApp.xcodeproj
+*.plist
+
