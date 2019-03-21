@@ -1,13 +1,12 @@
-# KNGitHub
+## KNGitHubApp
 このリポジトリはKotlin/NativeでiOSアプリとロジック共有するに当たって現在どんな感じになっているのか確認するために作成したサンプルアプリです。  
 作成したサンプルアプリはDroidKaigi2019のGitHubリポジトリからContributorを取得し一覧表示します。  
 叩くAPIは`https://api.github.com/repos/takahirom/conference-app-2019/contributors`です。  
 
-# 共通環境
+## 共通環境
 1. Kotlin 1.3.20
 2. gradle 3.3.0(gradle-4.10.1-all)
 
-# common, app, iosの簡単な説明と使用ライブラリ
 ## commonモジュールについて
 今回はとても簡単なアプリだったので可能な限りcommonMainで書くことにしました。  
 ただ、iOS側でsuspend関数が扱えない関係でどうしてもiOSMainにCoroutinesの補完処理を書いてやる必要がありiOSMainはコードを入れています。    
