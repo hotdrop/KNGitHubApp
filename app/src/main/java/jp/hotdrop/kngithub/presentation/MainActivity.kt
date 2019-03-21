@@ -19,6 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.viewModel
+import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity() {
@@ -36,15 +37,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun observe() {
         viewModel.contributors.observe(this, Observer {
-            it?.let {
+            it?.run {
                 binding.progressBar.visibility = View.GONE
-                onLoadContributors(it)
+                onLoadContributors(this)
             }
         })
         viewModel.error.observe(this, Observer {
-            it?.let {
+            it?.run {
                 binding.progressBar.visibility = View.GONE
-                Snackbar.make(binding.contentView, "エラーが発生しました。", Snackbar.LENGTH_INDEFINITE).show()
+                Timber.e(this)
+                Snackbar.make(binding.contentView, R.string.loading_error_find_contributors, Snackbar.LENGTH_INDEFINITE).show()
             }
         })
         lifecycle.addObserver(viewModel)
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun onLoadContributors(contributors: List<Contributor>) {
         if (contributors.isEmpty()) {
-            Snackbar.make(binding.contentView, "0件です・・", Snackbar.LENGTH_INDEFINITE).show()
+            Snackbar.make(binding.contentView, R.string.empty_find_contributors, Snackbar.LENGTH_INDEFINITE).show()
             return
         }
 

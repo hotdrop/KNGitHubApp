@@ -21,7 +21,7 @@ class MainViewModel(
         launch {
             try {
                 val contributors = useCase.findContributors()
-                Timber.d("コントリビュータを取得しました。取得数=${contributors.size}")
+                Timber.d("コントリビューターを取得しました。取得数=${contributors.size}")
                 contributors.forEach {
                     Timber.d("    ${it.name}")
                 }

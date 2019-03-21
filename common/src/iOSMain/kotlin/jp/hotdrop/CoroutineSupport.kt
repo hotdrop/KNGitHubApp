@@ -26,7 +26,6 @@ private class MainDispatcher: CoroutineDispatcher() {
             try {
                 block.run()
             } catch (e: Throwable) {
-                print("UNCAUCHT " + e.message)
                 e.printStackTrace()
                 throw e
             }

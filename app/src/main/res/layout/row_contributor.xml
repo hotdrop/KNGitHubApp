@@ -23,42 +23,50 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                     android:id="@+id/name"
-                    android:layout_width="333dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:text="@{contributor.name}"
                     app:layout_constraintStart_toEndOf="@+id/avatar_image"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="テスト太郎"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="テスト太郎"
+                    />
 
             <TextView
-                    android:id="@+id/contributeLabel"
+                    android:id="@+id/contribute_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="コントリビュート数: "
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/contributor_row_contribution_label"
                     app:layout_constraintTop_toBottomOf="@+id/name"
                     app:layout_constraintStart_toEndOf="@+id/avatar_image"
-                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
             <TextView
-                android:id="@+id/contribution"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{contributor.toStringContribution()}"
-                android:textColor="@color/gray"
-                app:layout_constraintStart_toEndOf="@+id/contributeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="10"/>
+                    android:id="@+id/contribution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{contributor.toStringContribution()}"
+                    android:textColor="@color/gray"
+                    app:layout_constraintStart_toEndOf="@+id/contribute_label"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="10"
+                    android:layout_marginStart="8dp"
+                    />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

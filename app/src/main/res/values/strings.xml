@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">KNGithub</string>
+
+    <string name="title">DroidKaigi2019 Conf App Contributors</string>
+    <string name="contributor_row_contribution_label">コントリビュート数:</string>
+
+    <string name="loading_error_find_contributors">コントリビューターの取得に失敗しました。</string>
+    <string name="empty_find_contributors">取得したコントリビューターは0件でした。</string>
 </resources>

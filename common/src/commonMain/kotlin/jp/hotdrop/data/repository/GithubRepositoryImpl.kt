@@ -18,11 +18,13 @@ class GithubRepositoryImpl(
 
     override suspend fun findContributors(): List<Contributor> {
         val rawResponse = client.get<String> {
-            url("${apiEndpoint}/contributors")
+            url("$apiEndpoint/contributors")
             accept(ContentType.Application.Json)
         }
 
-        val entities = Json.parse(ContributorEntity.serializer().list, rawResponse)
-        return entities.map { it.toContributor() }
+        return Json.parse(ContributorEntity.serializer().list, rawResponse)
+            .map {
+                it.toContributor()
+            }
     }
 }
